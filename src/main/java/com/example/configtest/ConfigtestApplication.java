@@ -42,8 +42,7 @@ public class ConfigtestApplication {
 	@Bean
 	ApplicationRunner applicationRunner(Environment environment, @Value("${HOME}") String homePath,
 			@Value("${message-from-program-args:}") String messageFromProgramArgs,
-			@Value("${bootiful-message}") String bootifulMessage,
-			@Value("${bootiful-properties.message}") String bootifulPropertiesMessage,
+			@Value("${bootiful-message}") String bootifulMessage, BootifulProperties bp,
 			@Value("${greeting-message:Default Hello : ${message-from-app-prop}}") String greeting) {
 		return args -> {
 			log.info("message from application.properties = " + environment.getProperty("message-from-app-prop"));
@@ -52,7 +51,7 @@ public class ConfigtestApplication {
 			log.info("spring.datasource.url = " + environment.getProperty("spring.datasource.url"));
 			log.info("message-from-program-args = " + messageFromProgramArgs);
 			log.info("message from custom property source = " + bootifulMessage);
-			log.info("message from BootifulProperties = " + bootifulPropertiesMessage);
+			log.info("message from BootifulProperties = " + bp.getMessage());
 		};
 	}
 
