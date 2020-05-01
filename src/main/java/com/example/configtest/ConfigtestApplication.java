@@ -3,20 +3,23 @@ package com.example.configtest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertySource;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @SpringBootApplication
+@EnableConfigurationProperties(BootifulProperties.class)
 public class ConfigtestApplication {
 
 	public static void main(String[] args) {
@@ -40,6 +43,7 @@ public class ConfigtestApplication {
 	ApplicationRunner applicationRunner(Environment environment, @Value("${HOME}") String homePath,
 			@Value("${message-from-program-args:}") String messageFromProgramArgs,
 			@Value("${bootiful-message}") String bootifulMessage,
+			@Value("${bootiful-properties.message}") String bootifulPropertiesMessage,
 			@Value("${greeting-message:Default Hello : ${message-from-app-prop}}") String greeting) {
 		return args -> {
 			log.info("message from application.properties = " + environment.getProperty("message-from-app-prop"));
@@ -48,6 +52,7 @@ public class ConfigtestApplication {
 			log.info("spring.datasource.url = " + environment.getProperty("spring.datasource.url"));
 			log.info("message-from-program-args = " + messageFromProgramArgs);
 			log.info("message from custom property source = " + bootifulMessage);
+			log.info("message from BootifulProperties = " + bootifulPropertiesMessage);
 		};
 	}
 
@@ -66,4 +71,12 @@ public class ConfigtestApplication {
 		}
 	}
 
+}
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ConfigurationProperties("bootiful-properties")
+class BootifulProperties {
+	private String message;
 }
