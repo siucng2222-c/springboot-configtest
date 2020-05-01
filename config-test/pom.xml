@@ -67,15 +67,20 @@
 				test
 			</scope>
 		</dependency>
+		<dependency>
+			<groupId>
+				org.springframework.cloud
+			</groupId>
+			<artifactId>
+				spring-cloud-starter-config
+			</artifactId>
+		</dependency>
 		<!--
 		<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-		<dependency>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
+		
 		<dependency>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-vault-config</artifactId>

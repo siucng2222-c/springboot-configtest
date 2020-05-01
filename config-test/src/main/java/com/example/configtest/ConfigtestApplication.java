@@ -45,6 +45,7 @@ public class ConfigtestApplication {
 	ApplicationRunner applicationRunner(Environment environment, @Value("${HOME}") String homePath,
 			@Value("${message-from-program-args:}") String messageFromProgramArgs,
 			@Value("${bootiful-message}") String bootifulMessage, BootifulProperties bp,
+			@Value("${greeting-from-config-server: No greeting from config-server....T_T}") String greetingFromConfigServer,
 			@Value("${greeting-message:Default Hello : ${message-from-app-prop}}") String greeting) {
 		return args -> {
 			log.info("message from application.properties = " + environment.getProperty("message-from-app-prop"));
@@ -54,6 +55,7 @@ public class ConfigtestApplication {
 			log.info("message-from-program-args = " + messageFromProgramArgs);
 			log.info("message from custom property source = " + bootifulMessage);
 			log.info("message from BootifulProperties = " + bp.getMessage());
+			log.info("message from config server = " + greetingFromConfigServer);
 		};
 	}
 
