@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -15,6 +16,7 @@ import org.springframework.core.env.PropertySource;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -73,8 +75,10 @@ public class ConfigtestApplication {
 }
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+// @AllArgsConstructor
+// @NoArgsConstructor
+@RequiredArgsConstructor
+@ConstructorBinding
 @ConfigurationProperties("bootiful-properties")
 class BootifulProperties {
 	private String message;
