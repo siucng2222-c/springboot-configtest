@@ -1,24 +1,25 @@
 {
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Spring Boot-ConfigtestApplication<configtest>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "mainClass": "com.example.configtest.ConfigtestApplication",
-            "projectName": "configtest",
-            "args": ""
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-ConfigServerApplication<config-server>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "mainClass": "com.example.configserver.ConfigServerApplication",
-            "projectName": "config-server",
-            "args": ""
-        }
-    ]
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigtestApplication<configtest>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.example.configtest.ConfigtestApplication",
+      "projectName": "configtest",
+      //   "env": { "VAULT_TOKEN": "s.oBOK41I5RZsJlbsN25k981b6" },
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigServerApplication<config-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.example.configserver.ConfigServerApplication",
+      "projectName": "config-server",
+      "args": ""
+    }
+  ]
 }
